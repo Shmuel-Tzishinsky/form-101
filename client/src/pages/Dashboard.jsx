@@ -246,7 +246,6 @@ const Dashboard = () => {
 
   return (
     <div>
-      <h2 className="page-header">צהרים טובים</h2>
       <div className="row body-dashboard">
         <div className="col-6 body-dashboard-box">
           <div className="row">
