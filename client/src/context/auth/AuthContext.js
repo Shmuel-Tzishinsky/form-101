@@ -46,7 +46,7 @@ export const AuthProvider = ({ children }) => {
       dispatch({
         type: types.AUTH_FAILURE,
         payload:
-          error.response.data.error_msg || error.message || 'התרחשה שגיאה'
+          error.response?.data?.error_msg || error.message || 'התרחשה שגיאה'
       });
     }
   }, []);
