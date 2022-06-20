@@ -40,6 +40,7 @@ const LoginForm = () => {
                 type={'email'}
                 name="email"
                 autoComplete="on"
+                defaultValue={data.email || ''}
                 className="rounded-pill"
                 onInput={(e) => setData({ ...data, email: e.target.value })}
               />
@@ -49,12 +50,14 @@ const LoginForm = () => {
           <div>
             <label htmlFor="name">סיסמה:</label>
             <div className="input-container">
+              {console.log(data)}
               <input
                 required={true}
                 autoComplete="on"
                 type={showPass ? 'password' : 'text'}
                 name="password"
                 className="rounded-pill"
+                defaultValue={data.password || ''}
                 onInput={(e) => setData({ ...data, password: e.target.value })}
               />
               <i className="bx bx-lock"></i>
