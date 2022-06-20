@@ -1,0 +1,50 @@
+{
+  "name": "form-101",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "@ant-design/icons": "^4.2.2",
+    "@hapi/joi": "^17.1.1",
+    "axios": "^0.27.2",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.0",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "chart.js": "^2.9.3",
+    "concurrently": "^5.2.0",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.2",
+    "crypto-js": "^4.0.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "html-pdf": "^3.0.1",
+    "html-pdf-node": "^1.0.8",
+    "jimp": "^0.16.1",
+    "jsonwebtoken": "^8.5.1",
+    "mocha": "^8.4.0",
+    "moment-timezone": "^0.5.34",
+    "mongoose": "^5.13.14",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.4",
+    "nodemailer": "^6.7.3",
+    "react-chartjs-2": "^2.10.0",
+    "styled-components": "^5.1.1",
+    "swagger-jsdoc": "^4.0.0",
+    "swagger-ui-express": "^4.1.4",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "mocha": "^8.4.0"
+  },
+  "scripts": {
+    "start": "node server",
+    "dev": "concurrently -n 'server,client' -c 'red,green' \"nodemon server.js\" \"npm run client\"",
+    "client": "cd client && npm start",
+    "server": "nodemon server.js",
+    "test": "mocha",
+    "heroku-postbuild": "cd client && npm install && npm run build"
+  },
+  "author": "",
+  "license": "ISC"
+}
