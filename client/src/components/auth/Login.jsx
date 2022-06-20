@@ -9,8 +9,8 @@ import './login.css';
 const LoginForm = () => {
   const [showPass, setShowPass] = useState(!0);
   const [data, setData] = useState({
-    email: '',
-    password: ''
+    email: 'fake@email.com',
+    password: 'passwordpassword'
   });
 
   const { state, LoginAction } = useContext(AuthContext);
