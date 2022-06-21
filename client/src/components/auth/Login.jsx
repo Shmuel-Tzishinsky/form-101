@@ -31,6 +31,7 @@ const LoginForm = () => {
     <div className="customers-login">
       <div className="form_container">
         <h1 className="page-header">ברוך הבא</h1>
+        <span style={{ textAlign: 'center' }}>האתר במצב תחזוקה</span>
         <form className="login-form" onSubmit={onFinish}>
           <div>
             <label htmlFor="name">אימייל:</label>
