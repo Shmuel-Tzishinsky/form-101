@@ -29,90 +29,48 @@ import LoginForm from '../auth/Login';
 import { useState } from 'react';
 
 const Layout = () => {
-  const themeReducer = useSelector((state) => state.ThemeReducer);
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    const themeClass = localStorage.getItem('themeMode', 'theme-mode-light');
-
-    const colorClass = localStorage.getItem('colorMode', 'theme-mode-light');
-
-    dispatch(ThemeAction.setMode(themeClass));
-
-    dispatch(ThemeAction.setColor(colorClass));
-  }, [dispatch]);
-
   return (
     <BrowserRouter>
       <Routes>
-        <Route
-          exact
-          path="/"
-          element={
-            <PagesAdmin Element={Dashboard} themeReducer={themeReducer} />
-          }
-        />
+        <Route exact path="/" element={<PagesAdmin Element={Dashboard} />} />
         <Route
           exact
           path="/companys"
-          element={
-            <PagesAdmin Element={Companys} themeReducer={themeReducer} />
-          }
+          element={<PagesAdmin Element={Companys} />}
         />
         <Route
           exact
           path="/companys/edit/:id"
-          element={
-            <PagesAdmin Element={NewCompany} themeReducer={themeReducer} />
-          }
+          element={<PagesAdmin Element={NewCompany} />}
         />
         <Route
           exact
           path="/companys/newCompany"
-          element={
-            <PagesAdmin Element={NewCompany} themeReducer={themeReducer} />
-          }
+          element={<PagesAdmin Element={NewCompany} />}
         />
-        <Route
-          exact
-          path="/forms"
-          element={<PagesAdmin Element={Forms} themeReducer={themeReducer} />}
-        />
+        <Route exact path="/forms" element={<PagesAdmin Element={Forms} />} />
         <Route
           exact
           path="/forms/:id"
-          element={
-            <PagesAdmin Element={SelectForm} themeReducer={themeReducer} />
-          }
+          element={<PagesAdmin Element={SelectForm} />}
         />
 
-        <Route
-          exact
-          path="/admins"
-          element={<PagesAdmin Element={Admins} themeReducer={themeReducer} />}
-        />
+        <Route exact path="/admins" element={<PagesAdmin Element={Admins} />} />
 
         <Route
           exact
           path="/edit-admin/:id"
-          element={
-            <PagesAdmin Element={EditOrAddAdmin} themeReducer={themeReducer} />
-          }
+          element={<PagesAdmin Element={EditOrAddAdmin} />}
         />
         <Route
           exact
           path="/add-new-user"
-          element={
-            <PagesAdmin Element={EditOrAddAdmin} themeReducer={themeReducer} />
-          }
+          element={<PagesAdmin Element={EditOrAddAdmin} />}
         />
         <Route
           exact
           path="/settings"
-          element={
-            <PagesAdmin Element={Settings} themeReducer={themeReducer} />
-          }
+          element={<PagesAdmin Element={Settings} />}
         />
         <Route
           exact
@@ -130,7 +88,21 @@ const Layout = () => {
   );
 };
 
-const PagesAdmin = ({ Element, themeReducer }) => {
+const PagesAdmin = ({ Element }) => {
+  const themeReducer = useSelector((state) => state.ThemeReducer);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const themeClass = localStorage.getItem('themeMode', 'theme-mode-light');
+
+    const colorClass = localStorage.getItem('colorMode', 'theme-mode-light');
+
+    dispatch(ThemeAction.setMode(themeClass));
+
+    dispatch(ThemeAction.setColor(colorClass));
+  }, [dispatch]);
+
   const [colorLogo, setColorLogo] = useState('');
 
   useEffect(() => {
