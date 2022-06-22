@@ -107,7 +107,6 @@ async function sendToMail(req, res) {
     let mail = await wrapedSendMail(req.body?.filename, mailOptions);
     res.status(200).json(mail);
   } catch (error) {
-    console.log(error);
     res.status(400).send('שגיאה בשליחת המייל');
   }
 }
@@ -140,7 +139,6 @@ async function sendToMail(req, res) {
     let mail = await wrapedSendMail(req.body?.filename, mailOptions);
     res.status(200).json(mail);
   } catch (error) {
-    console.log(error);
     res.status(400).send('שגיאה בשליחת המייל');
   }
 }
@@ -196,7 +194,6 @@ async function wrapedSendMail(filename, mailOptions) {
 
     transporter.sendMail(mailOptions, function (error, info) {
       if (error) {
-        console.log('error is ' + error);
         fs.unlinkSync(filename + '');
         resolve(false); // or use rejcet(false) but then you will have to handle errors
       } else {

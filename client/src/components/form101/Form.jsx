@@ -96,7 +96,6 @@ const Main = ({ data }) => {
             { ...data, filename: createPdf.data.filename }
           );
           if (sendToMail) {
-            console.log('send mail');
           }
           console.log(
             '🚀 ~ file: Form.jsx ~ line 98 ~ handleSubmit ~ sendToMail',
@@ -118,7 +117,6 @@ const Main = ({ data }) => {
           }
         } catch (error) {
           setLoading(false);
-          console.log('Form.jsx ~ line 80 error: ', error);
           alert(
             `${
               error?.response?.data || 'שגיאה כלשהי מנעה את עיבוד הנתונים'

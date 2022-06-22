@@ -50,7 +50,6 @@ const LoginForm = () => {
           <div>
             <label htmlFor="name">סיסמה:</label>
             <div className="input-container">
-              {console.log(data)}
               <input
                 required={true}
                 autoComplete="on"

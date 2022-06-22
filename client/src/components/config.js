@@ -8,7 +8,6 @@ export const axiosInstance = axios.create({
 });
 
 axiosInstance.interceptors.request.use(function (config) {
-  console.log('Request Sent');
   const token = localStorage.getItem('mern_admin_dashboard');
 
   if (token) {

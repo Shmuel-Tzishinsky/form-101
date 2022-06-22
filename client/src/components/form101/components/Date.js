@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 function Date({
   title,
@@ -8,9 +8,8 @@ function Date({
   year,
   helpBleow,
   nameObj,
-  maxWidth,
+  maxWidth
 }) {
-  // console.log({ title, name, setAllData, requiredB, year, month, day, helpBleow, nameObj, maxWidth});
   return (
     <div className="inputHolder date-inputHolder" {...maxWidth}>
       <div>
@@ -76,7 +75,7 @@ const setLengthOptions = (from, to, dateText) => {
 };
 
 function Dropdown({ name, from, to, dateText, setAllData, nameObj, required }) {
-  const [isActive, setIsActive] = useState("");
+  const [isActive, setIsActive] = useState('');
   const [select, setSelect] = useState(dateText);
   const options = setLengthOptions(from, to, dateText);
 
@@ -85,12 +84,12 @@ function Dropdown({ name, from, to, dateText, setAllData, nameObj, required }) {
       ...values,
       [nameObj]: {
         ...values[nameObj],
-        [name]: opt !== dateText ? opt : null,
-      },
+        [name]: opt !== dateText ? opt : null
+      }
     }));
 
     setSelect(opt);
-    setIsActive("close-dropdown-content");
+    setIsActive('close-dropdown-content');
   };
 
   return (
@@ -102,16 +101,16 @@ function Dropdown({ name, from, to, dateText, setAllData, nameObj, required }) {
           spellCheck="false"
           className="dropdown-btn"
           autoCorrect="off"
-          onBlur={() => setIsActive("close-dropdown-content")}
-          onFocus={() => setIsActive("open-dropdown-content")}
+          onBlur={() => setIsActive('close-dropdown-content')}
+          onFocus={() => setIsActive('open-dropdown-content')}
           onKeyDown={(e) => {
             e.preventDefault();
             return false;
           }}
           required={required}
         >
-          <option value={`${select === dateText ? "" : select}`} key="">
-            {select === dateText ? "" : select}
+          <option value={`${select === dateText ? '' : select}`} key="">
+            {select === dateText ? '' : select}
           </option>
         </select>
 

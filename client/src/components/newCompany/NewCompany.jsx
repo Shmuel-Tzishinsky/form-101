@@ -49,10 +49,6 @@ function NewCompany(props) {
       isActive: data.isActive ? true : false,
       token: data.token
     };
-    console.log(
-      '🚀 ~ file: NewCompany.jsx ~ line 52 ~ sendCustomers ~ dataStete',
-      dataStete
-    );
 
     if (id) {
       editCompany(dataStete, nav);

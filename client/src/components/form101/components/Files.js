@@ -13,23 +13,6 @@ function Files({ allData, setAllData, nameObj, required }) {
 
   const imgRef = useRef();
 
-  // function getImageProportions() {
-  //   var pixelRatio = window.devicePixelRatio / 2;
-
-  //   console.log(pixelRatio);
-  //   if (pixelRatio >= 1) {
-  //     console.log(imgRef.current);
-  //     imgRef.current.width = imgRef.current.width / pixelRatio + "px";
-  //     imgRef.current.height = imgRef.current.height / pixelRatio + "px";
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   window.addEventListener("resize", () => {
-  //     getImageProportions();
-  //   });
-  // }, []);
-
   useEffect(() => {
     async function loadFile() {
       if (name) {
@@ -112,7 +95,6 @@ function Files({ allData, setAllData, nameObj, required }) {
       setFile();
       setName();
     } catch (error) {
-      console.log('🚀 ~ file: Files.js ~ line 112 ~ deleteFile ~ error', error);
       alert('בעיה לא צפויה מנעה את מחיקה הקובץ');
     }
   }

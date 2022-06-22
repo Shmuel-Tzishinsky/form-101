@@ -43,7 +43,6 @@ const newCompanyAction = async (req, res) => {
     // Send email using sendgrid here
     return res.status(201).json({ data: savedCompany });
   } catch (err) {
-    console.log({ err });
     return res.status(400).json({ error_msg: err.message });
   }
 };
@@ -121,15 +120,12 @@ const editCompanysAction = async (req, res) => {
 const deleteCompanyAction = async (req, res) => {
   try {
     const company = await getSingleCompanyService({ _id: req.params.id });
-    console.log('🚀 company', company);
 
     const deleteForms = await Forms.remove({ token: company.token });
 
-    console.log('🚀  deleteForms', deleteForms);
     await company.remove();
     return res.status(200).json({ data: 'Success' });
   } catch (err) {
-    console.log('🚀 ', err);
     return res.status(400).json({ error_msg: err.message });
   }
 };

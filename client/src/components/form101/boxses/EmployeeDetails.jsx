@@ -1,21 +1,21 @@
-import { useState } from "react";
-import IdComp from "../components/IdComp";
-import DateInput from "../components/Date";
+import { useState } from 'react';
+import IdComp from '../components/IdComp';
+import DateInput from '../components/Date';
 
-import SearchCityEndStreet from "../components/SearchCityEndStreet";
-import Files from "../components/Files";
-import HebrowInput from "../components/HebrowInput";
+import SearchCityEndStreet from '../components/SearchCityEndStreet';
+import Files from '../components/Files';
+import HebrowInput from '../components/HebrowInput';
 
 // בודק אם המספר מתחיל ב-0 ושהספרה השניה היא או 234589
 export function checkNumPhone(num) {
   let startPhone = String(num).substring(0, 2);
   if (
-    startPhone === "05" ||
-    startPhone === "09" ||
-    startPhone === "08" ||
-    startPhone === "04" ||
-    startPhone === "03" ||
-    startPhone === "02"
+    startPhone === '05' ||
+    startPhone === '09' ||
+    startPhone === '08' ||
+    startPhone === '04' ||
+    startPhone === '03' ||
+    startPhone === '02'
   ) {
     return !/^0?(([234589]{1}\d{7})|[5]{1}\d{8})$/.test(num);
   }
@@ -33,16 +33,16 @@ const validateEmail = (email) => {
 
 function EmployeeDetails({ setAllData, allData }) {
   let thisYear = new Date();
-  const [valueSelect, setvalueSelect] = useState("");
-  const [erorrAnimation, setErorrAnimation] = useState("");
+  const [valueSelect, setvalueSelect] = useState('');
+  const [erorrAnimation, setErorrAnimation] = useState('');
   const [showPhoneError, setShowPhoneError] = useState(false);
   const [showPhoneError2, setShowPhoneError2] = useState(false);
   const [showEmailError, setShowEmailError] = useState(false);
 
   const dataText = {
-    passportText: ["מספר דרכון", "צילום דרכון", "נא להזין מספר דרכון חוקי."],
-    idText: ["מספר זהות", "צילום תעודת זהות", "נא להזין תעודת זהות חוקית."],
-    errNum: "יש להקליד מספרים בלבד!",
+    passportText: ['מספר דרכון', 'צילום דרכון', 'נא להזין מספר דרכון חוקי.'],
+    idText: ['מספר זהות', 'צילום תעודת זהות', 'נא להזין תעודת זהות חוקית.'],
+    errNum: 'יש להקליד מספרים בלבד!'
   };
 
   // משנה את הטקסט - או תעודת זהות או דרכון
@@ -50,14 +50,14 @@ function EmployeeDetails({ setAllData, allData }) {
 
   // בדיקה של מספר טלפון ישראלי
   const [phoneIsrali, setPhoneIsraeli] = useState({
-    num: "",
-    error: !0,
+    num: '',
+    error: !0
   });
 
   // בדיקה של מספר טלפון ישראלי
   const [phoneIsrali2, setPhoneIsraeli2] = useState({
-    num: "",
-    error: !0,
+    num: '',
+    error: !0
   });
 
   // רץ בכל שינוי של המספר טלפון השני
@@ -68,18 +68,18 @@ function EmployeeDetails({ setAllData, allData }) {
     if (num.length !== 0) {
       // אם הטקסט כולל טקסט שהוא לא מספרים
       if (!/^[0-9]+$/.test(num)) {
-        setPhoneIsraeli2({ num, error: "יש להזין מספר בלבד!" });
+        setPhoneIsraeli2({ num, error: 'יש להזין מספר בלבד!' });
       } else if (num.length >= 9 && num.length <= 10) {
         // אחרי שהאורך נכון בודק את תקינות המספר
         setPhoneIsraeli2({
           num,
-          error: !checkNumPhone(num) ? true : "יש להזין מספר חוקי!",
+          error: !checkNumPhone(num) ? true : 'יש להזין מספר חוקי!'
         });
       } else {
         // שגיאת תקינות
         setPhoneIsraeli2({
           num,
-          error: "המספר חייב להיות באורך תקין!",
+          error: 'המספר חייב להיות באורך תקין!'
         });
       }
     } else {
@@ -97,18 +97,18 @@ function EmployeeDetails({ setAllData, allData }) {
     if (num.length !== 0) {
       // אם הטקסט כולל טקסט שהוא לא מספרים
       if (!/^[0-9]+$/.test(num)) {
-        setPhoneIsraeli({ num, error: "יש להזין מספר בלבד!" });
+        setPhoneIsraeli({ num, error: 'יש להזין מספר בלבד!' });
       } else if (num.length >= 9 || num.length <= 10) {
         // אחרי שהאורך נכון בודק את תקינות המספר
         setPhoneIsraeli({
           num,
-          error: !checkNumPhone(num) ? true : "יש להזין מספר חוקי!",
+          error: !checkNumPhone(num) ? true : 'יש להזין מספר חוקי!'
         });
       } else {
         // שגיאת תקינות
         setPhoneIsraeli({
           num,
-          error: "המספר חייב להיות באורך תקין!",
+          error: 'המספר חייב להיות באורך תקין!'
         });
       }
     } else {
@@ -120,8 +120,8 @@ function EmployeeDetails({ setAllData, allData }) {
 
   // בדיקה של האימייל
   const [checkGmail, setCheckGmail] = useState({
-    email: "",
-    error: !0,
+    email: '',
+    error: !0
   });
 
   // בשינוי של הטקסט של האימייל
@@ -134,7 +134,7 @@ function EmployeeDetails({ setAllData, allData }) {
       if (!validateEmail(email)) {
         setCheckGmail({
           email,
-          error: "יש להכניס כתובת אימייל תקינה.",
+          error: 'יש להכניס כתובת אימייל תקינה.'
         });
       } else {
         setCheckGmail({ email, error: !0 });
@@ -152,20 +152,19 @@ function EmployeeDetails({ setAllData, allData }) {
   const handleChange = ({ target: { name, value } }) => {
     setAllData((values) => ({
       ...values,
-      employeeDetails: { ...values.employeeDetails, [name]: value },
+      employeeDetails: { ...values.employeeDetails, [name]: value }
     }));
   };
 
   const focusIfError = (el, err) => {
-    // console.log(err);
-    if (typeof err === "string") {
+    if (typeof err === 'string') {
       el.focus();
       setShowPhoneError(true);
       setShowPhoneError2(true);
       setShowEmailError(true);
-      setErorrAnimation("erorr-animation");
+      setErorrAnimation('erorr-animation');
       setTimeout(() => {
-        setErorrAnimation("");
+        setErorrAnimation('');
       }, 200);
     }
   };
@@ -182,7 +181,7 @@ function EmployeeDetails({ setAllData, allData }) {
             <div className="label-radio">
               <input
                 type="radio"
-                value={"id"}
+                value={'id'}
                 name="idBy"
                 id="idBy-id"
                 defaultChecked
@@ -196,7 +195,7 @@ function EmployeeDetails({ setAllData, allData }) {
             <div className="label-radio">
               <input
                 type="radio"
-                value={"passport"}
+                value={'passport'}
                 name="idBy"
                 id="idBy-passport"
                 onChange={(e) => {
@@ -205,7 +204,7 @@ function EmployeeDetails({ setAllData, allData }) {
                 }}
               />
               <label htmlFor="idBy-passport">
-                דרכון {window.innerWidth > 557 && "(עבור אזרח זר)"}
+                דרכון {window.innerWidth > 557 && '(עבור אזרח זר)'}
               </label>
             </div>
           </div>
@@ -236,7 +235,7 @@ function EmployeeDetails({ setAllData, allData }) {
             </div>
             <HebrowInput
               handleChange={handleChange}
-              name={"firstName"}
+              name={'firstName'}
               required={true}
             />
           </label>
@@ -252,7 +251,7 @@ function EmployeeDetails({ setAllData, allData }) {
             </div>
             <HebrowInput
               handleChange={handleChange}
-              name={"lastName"}
+              name={'lastName'}
               required={true}
             />
           </label>
@@ -262,19 +261,19 @@ function EmployeeDetails({ setAllData, allData }) {
         </div>
 
         <SearchCityEndStreet
-          name={["citi", "ישוב"]}
-          citi={"שם_ישוב"}
+          name={['citi', 'ישוב']}
+          citi={'שם_ישוב'}
           allData={allData}
           setAllData={setAllData}
-          inAllData={"employeeDetails"}
+          inAllData={'employeeDetails'}
         />
         <SearchCityEndStreet
-          name={["street", "רחוב"]}
-          citi={"שם_ישוב"}
+          name={['street', 'רחוב']}
+          citi={'שם_ישוב'}
           allData={allData}
-          street={"שם_רחוב"}
+          street={'שם_רחוב'}
           setAllData={setAllData}
-          inAllData={"employeeDetails"}
+          inAllData={'employeeDetails'}
         />
 
         <div className="inputHolder">
@@ -315,7 +314,7 @@ function EmployeeDetails({ setAllData, allData }) {
                 rel="noreferrer"
                 href="https://mypost.israelpost.co.il/%D7%A9%D7%99%D7%A8%D7%95%D7%AA%D7%99%D7%9D/%D7%90%D7%99%D7%AA%D7%95%D7%A8-%D7%9E%D7%99%D7%A7%D7%95%D7%93/"
               >
-                {" "}
+                {' '}
                 באתר הדואר
               </a>
             </p>
@@ -323,23 +322,23 @@ function EmployeeDetails({ setAllData, allData }) {
         </div>
 
         <DateInput
-          title={"תאריך לידה"}
+          title={'תאריך לידה'}
           name="birth"
-          nameObj={"employeeDetails"}
+          nameObj={'employeeDetails'}
           setAllData={setAllData}
           requiredB={true}
-          year={{ max: thisYear.getFullYear() - 16, min: "1960" }}
+          year={{ max: thisYear.getFullYear() - 16, min: '1960' }}
         />
 
         <DateInput
-          title={"תאריך עליה"}
+          title={'תאריך עליה'}
           name="increase"
-          nameObj={"employeeDetails"}
+          nameObj={'employeeDetails'}
           setAllData={setAllData}
           requiredB={false}
           year={{
             max: thisYear.getFullYear(),
-            min: thisYear.getFullYear() - 4,
+            min: thisYear.getFullYear() - 4
           }}
         />
 
@@ -404,7 +403,7 @@ function EmployeeDetails({ setAllData, allData }) {
           {showEmailError && checkGmail.error && (
             <div
               className={`error ${erorrAnimation}`}
-              style={{ display: checkGmail.error ? "block" : "none" }}
+              style={{ display: checkGmail.error ? 'block' : 'none' }}
             >
               <p>{checkGmail.error}</p>
             </div>
@@ -423,7 +422,7 @@ function EmployeeDetails({ setAllData, allData }) {
             <div className="label-radio">
               <input
                 type="radio"
-                value={"men"}
+                value={'men'}
                 name="gender"
                 id="men-y45y"
                 onChange={handleChange}
@@ -434,7 +433,7 @@ function EmployeeDetails({ setAllData, allData }) {
             <div className="label-radio">
               <input
                 type="radio"
-                value={"woman"}
+                value={'woman'}
                 name="gender"
                 id="woman-142424214"
                 onChange={handleChange}
@@ -453,7 +452,7 @@ function EmployeeDetails({ setAllData, allData }) {
             <div className="label-radio">
               <input
                 type="radio"
-                value={"bachelor"}
+                value={'bachelor'}
                 name="maritalStatus"
                 id="bachelor"
                 onChange={handleChange}
@@ -464,7 +463,7 @@ function EmployeeDetails({ setAllData, allData }) {
             <div className="label-radio">
               <input
                 type="radio"
-                value={"married"}
+                value={'married'}
                 name="maritalStatus"
                 onChange={handleChange}
                 required
@@ -474,7 +473,7 @@ function EmployeeDetails({ setAllData, allData }) {
             <div className="label-radio">
               <input
                 type="radio"
-                value={"divorcee"}
+                value={'divorcee'}
                 name="maritalStatus"
                 onChange={handleChange}
                 required
@@ -484,7 +483,7 @@ function EmployeeDetails({ setAllData, allData }) {
             <div className="label-radio">
               <input
                 type="radio"
-                value={"widower"}
+                value={'widower'}
                 name="maritalStatus"
                 onChange={handleChange}
                 required
@@ -494,7 +493,7 @@ function EmployeeDetails({ setAllData, allData }) {
             <div className="label-radio">
               <input
                 type="radio"
-                value={"separated"}
+                value={'separated'}
                 name="maritalStatus"
                 onChange={handleChange}
                 required
@@ -512,7 +511,7 @@ function EmployeeDetails({ setAllData, allData }) {
             <div className="label-radio">
               <input
                 type="radio"
-                value={"yes"}
+                value={'yes'}
                 id="israeliResident-yes"
                 name="israeliResident"
                 onChange={handleChange}
@@ -523,7 +522,7 @@ function EmployeeDetails({ setAllData, allData }) {
             <div className="label-radio">
               <input
                 type="radio"
-                value={"no"}
+                value={'no'}
                 name="israeliResident"
                 onChange={handleChange}
                 id="idisraeliResident-no"
@@ -542,7 +541,7 @@ function EmployeeDetails({ setAllData, allData }) {
             <div className="label-radio">
               <input
                 type="radio"
-                value={"yes"}
+                value={'yes'}
                 name="memberKibbutzOrMoshav"
                 onChange={handleChange}
                 required
@@ -552,7 +551,7 @@ function EmployeeDetails({ setAllData, allData }) {
             <div className="label-radio">
               <input
                 type="radio"
-                value={"no"}
+                value={'no'}
                 id="memberKibbutzOrMoshav-no"
                 name="memberKibbutzOrMoshav"
                 onChange={handleChange}
@@ -571,7 +570,7 @@ function EmployeeDetails({ setAllData, allData }) {
             <div className="label-radio">
               <input
                 type="radio"
-                value={"yes"}
+                value={'yes'}
                 name="HMOMember"
                 id="HMOMember-yes"
                 onChange={(e) => {
@@ -585,7 +584,7 @@ function EmployeeDetails({ setAllData, allData }) {
             <div className="label-radio">
               <input
                 type="radio"
-                value={"no"}
+                value={'no'}
                 name="HMOMember"
                 id="HMOMember-no"
                 onChange={(e) => {

@@ -39,10 +39,7 @@ export default function Forms() {
 
   useEffect(() => {
     let data = [];
-    console.log(
-      '🚀 ~ file: Forms.jsx ~ line 44 ~ useEffect ~ formsLength',
-      formsLength
-    );
+
     for (let ind = 0; ind < companys.length; ind++) {
       let filterForms = formsLength.filter(
         (form) => form.token === companys[ind].token

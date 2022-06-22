@@ -65,7 +65,6 @@ const registerUser = async (req, res) => {
     // Send email using sendgrid here
     return res.status(201).json({ data: savedUser });
   } catch (err) {
-    console.log({ err });
     return res.status(400).json({ error_msg: err.message });
   }
 };
@@ -192,7 +191,6 @@ const passwordReset = async (req, res) => {
     // Send an email to the user telling the password change successful
     return res.status(200).json({ data: 'Success' });
   } catch (err) {
-    console.log(err);
     return res.status(400).json({ error_msg: err.message });
   }
 };
@@ -227,7 +225,6 @@ const changePassword = async (req, res) => {
     await user.save();
     return res.json('Success');
   } catch (err) {
-    console.log(err);
     return res.status(400).json({ error_msg: err.message });
   }
 };

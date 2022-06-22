@@ -1,10 +1,8 @@
 const User = require('../models/User');
 
 const getUser = async (query) => {
-  console.log('🚀 ~ file: user.services.js ~ line 4 ~ getUser ~ query', query);
   try {
     const user = await User.findOne(query).select('+password');
-    console.log('🚀 ~ file: user.services.js ~ line 7 ~ getUser ~ user', user);
     if (!user) {
       throw Error('המשתמש לא נמצא');
     }

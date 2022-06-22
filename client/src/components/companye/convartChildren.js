@@ -13,13 +13,9 @@ function newJson(data) {
       date
     } = data[d];
 
-    console.log(data[d]);
-
     partner = partner ? partner : {};
     taxExemptionOrCredit = taxExemptionOrCredit ? taxExemptionOrCredit : {};
     taxCoordination = taxCoordination ? taxCoordination : {};
-
-    console.log(children);
 
     for (let child = 0; child < children.length; child++) {
       const childObj = {

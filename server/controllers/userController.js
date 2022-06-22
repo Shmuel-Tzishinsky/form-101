@@ -66,25 +66,18 @@ const editUserAction = async (req, res) => {
     const user = req.body;
     const { _id } = user;
 
-    console.log('🚀 ~ ion ~ user.password', user.password);
     if (user.password) {
       user.password = await passwordEncrypt(user.password);
     }
-    console.log('🚀er.password', user.password);
 
     const newUser = await getAndEditUser({ _id }, user);
     return res.json({ data: newUser });
   } catch (err) {
-    console.log(
-      '🚀 ~ file: userController.js ~ line 78 ~ editUserAction ~ err',
-      err
-    );
     return res.status(400).json({ error_msg: err.message });
   }
 };
 
 const deleteUserAction = async (req, res) => {
-  console.log(req.params);
   try {
     const user = await getSingleUserService({ _id: req.params.id });
     if (user.role === 'admin') {

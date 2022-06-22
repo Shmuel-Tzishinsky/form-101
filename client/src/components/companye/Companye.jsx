@@ -103,7 +103,6 @@ function Companie({ bodyData, limit }) {
       });
     } catch (error) {
       setLoading(false);
-      console.log('error: ', error);
       alert('שגיאה כלשהי מנעה את עיבוד הנתונים , אנא נסה שוב מאוחר יותר');
     }
   };
@@ -123,7 +122,6 @@ function Companie({ bodyData, limit }) {
   }
 
   const clicked = () => {
-    console.log(selectedUser);
     const forms = XLSX.utils.json_to_sheet(convartToXlsx(selectedUser));
 
     for (const key in forms) {

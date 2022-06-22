@@ -121,7 +121,6 @@ function StatementAndSignature({
         }));
     } catch (error) {
       setLoading(false);
-      console.log('error: ', error);
       alert('שגיאה כלשהי מנעה את עיבוד הנתונים , אנא נסה שוב מאוחר יותר');
     }
   };
