@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // export const baseURL = 'http://localhost:5000/';
-export const baseURL = 'https://forms-101-online.herokuapp.com/';
+export const baseURL = 'https://forms-101-backend.onrender.com/';
 
 export const axiosInstance = axios.create({
   baseURL
